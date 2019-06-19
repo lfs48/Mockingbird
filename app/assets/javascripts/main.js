@@ -174,7 +174,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var App = function App() {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Mockingbird"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_2__["AuthRoute"], {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_2__["AuthRoute"], {
     exact: true,
     path: "/home",
     component: _main_menu_main_menu_container__WEBPACK_IMPORTED_MODULE_3__["default"]
@@ -203,6 +203,8 @@ var MainMenu = function MainMenu(currentUser, logout) {
     className: "main-menu-content-container"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "navbar-container"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "MockingBird"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "navbar-user-container"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "navbar-username-container"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -212,7 +214,7 @@ var MainMenu = function MainMenu(currentUser, logout) {
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     className: "navbar-logout-button",
     onClick: logout
-  }, "Log Out"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, "Log Out")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "map-container"
   })));
 };
