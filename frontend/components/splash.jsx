@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import {login} from '../actions/session_actions';
 
 export default function Splash() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const dispatch = useDispatch();
 
     return (
         <>
@@ -20,7 +23,10 @@ export default function Splash() {
                     onChange={e => setPassword(e.target.value)}
                     placeholder="password"
                 />
-                <button type="submit">Log In</button>
+                <button 
+                    type="submit"
+                    onClick={() => dispatch(login({username: username, password: password}))}
+                >Log In</button>
             </form>
         </>
     );
