@@ -1,6 +1,6 @@
 import MainMenu from './main_menu';
 import { connect } from 'react-redux';
-// import { logout } from '../../actions/session_actions';
+import { logout } from '../../actions/session_actions';
 
 const mapStateToProps = ({ session, entities: { users } }) => {
   return {
@@ -10,7 +10,7 @@ const mapStateToProps = ({ session, entities: { users } }) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    // logout: () => dispatch(logout())
+    logout: () => dispatch(logout())
   };
 };
 

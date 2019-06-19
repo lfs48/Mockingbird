@@ -1,6 +1,9 @@
 import React from 'react';
 
-const MainMenu = (currentUser, logout) => {
+const MainMenu = (
+  currentUser, 
+  logout
+  ) => {
 
   return (
     <>
@@ -8,7 +11,9 @@ const MainMenu = (currentUser, logout) => {
       <main className="main-menu-content-container">
         <div className="navbar-container">
           <div className="navbar-username-container">
-            <span className="navbar-username">{currentUser.username}</span>
+            <span className="navbar-username">
+              {currentUser.username}
+            </span>
           </div>
           <div className="navbar-logout-button-container">
             <button className="navbar-logout-button" onClick={logout}>Log Out</button>
