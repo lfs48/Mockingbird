@@ -1,6 +1,7 @@
 class Api::UserController < ApplicationController
   
   def index
+    debugger
     @users = User.all
   end
   
@@ -11,7 +12,7 @@ class Api::UserController < ApplicationController
   end
   
   def create
-    
+    debugger
     @user = User.new(user_params)
     # debugger
     
@@ -36,6 +37,6 @@ class Api::UserController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:username, :rupees, :active, :password, :email, :language_strength, :site_streak, :learning_language, :learning_language_string, :rupees)
+    params.require(:user).permit(:username)
   end
 end

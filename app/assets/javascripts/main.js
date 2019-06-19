@@ -297,8 +297,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var mapStateToProps = function mapStateToProps() {
-  return {};
+var mapStateToProps = function mapStateToProps(state) {
+  return {
+    users: Object.values(state.entities.users)
+  };
 };
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
