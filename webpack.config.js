@@ -4,7 +4,7 @@ module.exports = {
     context: __dirname,
     entry: './frontend/mockingbird.jsx',
     output: {
-        path: path.resolve(__dirname),
+        path: path.resolve(__dirname, 'app', 'assets', 'javascripts'),
         filename: 'main.js'
     },
     module: {
@@ -21,8 +21,10 @@ module.exports = {
             }
         ]
     },
-    devtool: 'eval-source-map',
+    devtool: 'source-map',
     resolve: {
         extensions: [".js", ".jsx", "*"]
     }
 };
+
+
