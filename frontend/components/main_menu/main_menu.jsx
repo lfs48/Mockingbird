@@ -10,15 +10,15 @@ const MainMenu = (
 
       <main className="main-menu-content-container">
         <div className="navbar-container">
-          <h1>MockingBird</h1>
+          <div className="navbar-title">Mockingbird</div>
           <div className="navbar-user-container">
             <div className="navbar-username-container">
               <span className="navbar-username">
-                {currentUser.username}
+                {currentUser.username}Bladdy
               </span>
             </div>
             <div className="navbar-logout-button-container">
-              <button className="navbar-logout-button" onClick={logout}>Log Out</button>
+              <button className="navbar-logout-button" onClick={() =>logout}>Log Out</button>
             </div>
           </div>
         </div>

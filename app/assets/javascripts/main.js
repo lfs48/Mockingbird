@@ -203,17 +203,21 @@ var MainMenu = function MainMenu(currentUser, logout) {
     className: "main-menu-content-container"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "navbar-container"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "MockingBird"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "navbar-title"
+  }, "Mockingbird"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "navbar-user-container"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "navbar-username-container"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "navbar-username"
-  }, currentUser.username)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, currentUser.username, "Bladdy")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "navbar-logout-button-container"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     className: "navbar-logout-button",
-    onClick: logout
+    onClick: function onClick() {
+      return logout;
+    }
   }, "Log Out")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "map-container"
   })));
