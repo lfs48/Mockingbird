@@ -4,8 +4,15 @@ export default (state = { id: null }, action) => {
     Object.freeze(state)
     switch (action.type) {
         case RECEIVE_CURRENT_USER:
+<<<<<<< HEAD
+
             return { id: action.currentUser.id }
         case LOGOUT_CURRENT_USER:
+
+=======
+            return { id: action.currentUser.id }
+        case LOGOUT_CURRENT_USER:
+>>>>>>> 88aabc00991f02e352fb8185298409b7f6f203b7
             return { id: null }
         default:
             return state;
