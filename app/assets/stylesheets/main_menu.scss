@@ -1,10 +1,17 @@
+.main-menu-content-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .navbar-container{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  border: 1px solid darkblue;
+  font-size: 20px;
   width: 100vw;
+  border: 1px solid blue;
 }
 
 .navbar-user-container{
@@ -13,14 +20,22 @@
   justify-content: space-between;
   align-items: center;
   margin-right: 20px;
-  border: 1px solid purple;
+}
+
+.navbar-username{
+  margin-right: 20px;
 }
 
 .navbar-title{
+  margin-left: 20px;
   align-items: center;
 }
 
 .map-container{
-  border: 1px solid red;
   margin: 30px;
+  width: 80vw;
+}
+
+.navbar-logout-button{
+  border-radius: 3px;
 }
