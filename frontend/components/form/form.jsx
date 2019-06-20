@@ -20,6 +20,12 @@ class Form extends React.Component {
         this.props.fetchUsers();
         // 
     }
+    componentDidUpdate(prevProps, prevState){
+        
+        if(this.props.secrets.message !== prevProps.secrets.message){
+            alert(this.props.secrets.message + " was discreetly saved!")
+        }
+    }
 
     handleSubmit(e){
         e.preventDefault();

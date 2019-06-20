@@ -5,8 +5,10 @@ import Form from './form';
 import {fetchAllUsers} from '../../actions/user_actions'
 import {createSecret} from '../../actions/secret_actions'
 const mapStateToProps = (state) => {
+    
     return {
-        users: Object.values(state.entities.users)
+        users: Object.values(state.entities.users),
+        secrets: state.entities.secrets
     };
 };
 
