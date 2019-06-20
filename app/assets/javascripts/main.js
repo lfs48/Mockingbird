@@ -193,6 +193,119 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var google_maps_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! google-maps-react */ "./node_modules/google-maps-react/dist/index.js");
 /* harmony import */ var google_maps_react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(google_maps_react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _map_center__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./map_center */ "./frontend/components/Map/map_center.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+ // import { mapstyle } from "../../../lib/assets/map-styling";
+
+
+var MapContainer =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(MapContainer, _React$Component);
+
+  function MapContainer(props) {
+    var _this;
+
+    _classCallCheck(this, MapContainer);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(MapContainer).call(this, props));
+    _this.state = {
+      center: {
+        lat: 40.720310,
+        lng: -73.913242
+      },
+      showingInfoWindow: false,
+      activeMarker: {},
+      selectedPlace: {},
+      errors: _this.props.errors
+    };
+    return _this;
+  } // onMarkerClick = (props, marker, e) =>
+  //   this.setState({
+  //     selectedPlace: props,
+  //     activeMarker: marker,
+  //     showingInfoWindow: true
+  //   });
+  // onClose = props => {
+  //   if (this.state.showingInfoWindow) {
+  //     this.setState({
+  //       showingInfoWindow: false,
+  //       activeMarker: null
+  //     });
+  //   }
+  // };
+
+
+  _createClass(MapContainer, [{
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_map_center__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        centerAroundCurrentLocation: true,
+        google: this.props.google
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(google_maps_react__WEBPACK_IMPORTED_MODULE_1__["Marker"], {
+        onClick: this.onMarkerClick,
+        name: 'current location'
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(google_maps_react__WEBPACK_IMPORTED_MODULE_1__["InfoWindow"], {
+        marker: this.state.activeMarker,
+        visible: this.state.showingInfoWindow,
+        onClose: this.onClose
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, this.state.selectedPlace.name)))) // <Map
+      //   google = {this.props.google}
+      //   zoom = {12}
+      //   styles = {mapstyle}
+      //   mapTypeControl = {false}
+      //   disableDefaultUI = {true}
+      //   zoomControl = {false}
+      //   scaleControl = {false}
+      //   streetViewControl = {false}
+      //   rotateControl = {false}
+      //   fullscreenControl = {true}
+      //   initialCenter = {this.state.center}
+      // />
+      ;
+    }
+  }]);
+
+  return MapContainer;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+/* harmony default export */ __webpack_exports__["default"] = (Object(google_maps_react__WEBPACK_IMPORTED_MODULE_1__["GoogleApiWrapper"])({
+  apiKey: 'AIzaSyCQ1sVSKZozy7U7kxsWE2D1B6HgT9QsjH8'
+})(MapContainer));
+
+/***/ }),
+
+/***/ "./frontend/components/Map/map_center.js":
+/*!***********************************************!*\
+  !*** ./frontend/components/Map/map_center.js ***!
+  \***********************************************/
+/*! exports provided: CurrentLocation, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CurrentLocation", function() { return CurrentLocation; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _lib_assets_map_styling__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../lib/assets/map-styling */ "./lib/assets/map-styling.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -215,69 +328,159 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
-var MapContainer =
+var mapStyles = {
+  map: {
+    position: 'absolute',
+    width: '100%',
+    height: '100%',
+    styles: _lib_assets_map_styling__WEBPACK_IMPORTED_MODULE_2__["mapstyle"]
+  }
+};
+var CurrentLocation =
 /*#__PURE__*/
 function (_React$Component) {
-  _inherits(MapContainer, _React$Component);
+  _inherits(CurrentLocation, _React$Component);
 
-  function MapContainer(props) {
+  function CurrentLocation(props) {
     var _this;
 
-    _classCallCheck(this, MapContainer);
+    _classCallCheck(this, CurrentLocation);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(MapContainer).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(CurrentLocation).call(this, props));
+    var _this$props$initialCe = _this.props.initialCenter,
+        lat = _this$props$initialCe.lat,
+        lng = _this$props$initialCe.lng;
     _this.state = {
-      center: {},
-      errors: _this.props.errors
+      currentLocation: {
+        lat: lat,
+        lng: lng
+      }
     };
     return _this;
-  } // let map;
-  // initMap = {
-  //   map = new google.maps.Map(document.getElementById('map'), {
-  //     center: { lat: 40.720310, lng: -73.913242 },
-  //     zoom: 11,
-  //     styles: mapstyle,
-  //     mapTypeControl: false,
-  //     disableDefaultUI: true,
-  //     zoomControl: false,
-  //     scaleControl: false,
-  //     streetViewControl: false,
-  //     rotateControl: false,
-  //     fullscreenControl: true
-  //   }
-  // }
-  // componentDidMount() {
-  //   initMap();
-  // }
+  }
 
+  _createClass(CurrentLocation, [{
+    key: "componentDidUpdate",
+    value: function componentDidUpdate(prevProps, prevState) {
+      if (prevProps.google !== this.props.google) {
+        this.loadMap();
+      }
 
-  _createClass(MapContainer, [{
+      if (prevState.currentLocation !== this.state.currentLocation) {
+        this.recenterMap();
+      }
+    }
+  }, {
+    key: "recenterMap",
+    value: function recenterMap() {
+      var map = this.map;
+      var current = this.state.currentLocation;
+      var google = this.props.google;
+      var maps = google.maps;
+
+      if (map) {
+        var center = new maps.LatLng(current.lat, current.lng);
+        map.panTo(center);
+      }
+    }
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      if (this.props.centerAroundCurrentLocation) {
+        if (navigator && navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function (pos) {
+            var coords = pos.coords;
+
+            _this2.setState({
+              currentLocation: {
+                lat: coords.latitude,
+                lng: coords.longitude
+              }
+            });
+          });
+        }
+      }
+
+      this.loadMap();
+    }
+  }, {
+    key: "loadMap",
+    value: function loadMap() {
+      if (this.props && this.props.google) {
+        // checks if google is available
+        var google = this.props.google;
+        var maps = google.maps;
+        var mapRef = this.refs.map; // reference to the actual DOM element
+
+        var node = react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.findDOMNode(mapRef);
+        var zoom = this.props.zoom;
+        var _this$state$currentLo = this.state.currentLocation,
+            lat = _this$state$currentLo.lat,
+            lng = _this$state$currentLo.lng;
+        var center = new maps.LatLng(lat, lng);
+        var mapConfig = Object.assign({}, {
+          center: center,
+          zoom: zoom
+        }); // maps.Map() is constructor that instantiates the map
+
+        this.map = new maps.Map(node, mapConfig), {
+          center: {
+            lat: 40.720310,
+            lng: -73.913242
+          },
+          zoom: 11,
+          styles: _lib_assets_map_styling__WEBPACK_IMPORTED_MODULE_2__["mapstyle"],
+          mapTypeControl: false,
+          disableDefaultUI: true,
+          zoomControl: false,
+          scaleControl: false,
+          streetViewControl: false,
+          rotateControl: false,
+          fullscreenControl: true
+        };
+      }
+    }
+  }, {
+    key: "renderChildren",
+    value: function renderChildren() {
+      var _this3 = this;
+
+      var children = this.props.children;
+      if (!children) return;
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.Children.map(children, function (c) {
+        if (!c) return;
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.cloneElement(c, {
+          map: _this3.map,
+          google: _this3.props.google,
+          mapCenter: _this3.state.currentLocation
+        });
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(google_maps_react__WEBPACK_IMPORTED_MODULE_1__["Map"], {
-        google: this.props.google,
-        zoom: 8,
-        styles: _lib_assets_map_styling__WEBPACK_IMPORTED_MODULE_2__["mapstyle"],
-        mapTypeControl: false,
-        disableDefaultUI: true,
-        zoomControl: false,
-        scaleControl: false,
-        streetViewControl: false,
-        rotateControl: false,
-        fullscreenControl: true,
-        initialCenter: {
-          lat: 47.444,
-          lng: -122.176
-        }
-      });
+      var style = Object.assign({}, mapStyles.map);
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        style: style,
+        ref: "map"
+      }, "Loading map..."), this.renderChildren());
     }
   }]);
 
-  return MapContainer;
+  return CurrentLocation;
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
-/* harmony default export */ __webpack_exports__["default"] = (Object(google_maps_react__WEBPACK_IMPORTED_MODULE_1__["GoogleApiWrapper"])({
-  apiKey: 'AIzaSyCQ1sVSKZozy7U7kxsWE2D1B6HgT9QsjH8'
-})(MapContainer));
+/* harmony default export */ __webpack_exports__["default"] = (CurrentLocation);
+CurrentLocation.defaultProps = {
+  zoom: 14,
+  initialCenter: {
+    lat: -1.2884,
+    lng: 36.8233
+  },
+  centerAroundCurrentLocation: false,
+  visible: true
+};
 
 /***/ }),
 

@@ -1,56 +1,72 @@
 import React from 'react';
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
-import { mapstyle } from "../../../lib/assets/map-styling";
+// import { mapstyle } from "../../../lib/assets/map-styling";
+import CurrentLocation from './map_center';
 
 export class MapContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      center: {},
+      center: { lat: 40.720310, lng: -73.913242 },
+      showingInfoWindow: false,
+      activeMarker: {},
+      selectedPlace: {},
       errors: this.props.errors
     };
   }
 
-  // let map;
+  // onMarkerClick = (props, marker, e) =>
+  //   this.setState({
+  //     selectedPlace: props,
+  //     activeMarker: marker,
+  //     showingInfoWindow: true
+  //   });
 
-  // initMap = {
-  //   map = new google.maps.Map(document.getElementById('map'), {
-  //     center: { lat: 40.720310, lng: -73.913242 },
-  //     zoom: 11,
-  //     styles: mapstyle,
-  //     mapTypeControl: false,
-  //     disableDefaultUI: true,
-  //     zoomControl: false,
-  //     scaleControl: false,
-  //     streetViewControl: false,
-  //     rotateControl: false,
-  //     fullscreenControl: true
+  // onClose = props => {
+  //   if (this.state.showingInfoWindow) {
+  //     this.setState({
+  //       showingInfoWindow: false,
+  //       activeMarker: null
+  //     });
   //   }
-  // }
-
-// componentDidMount() {
-//   initMap();
-// }
+  // };
 
   render() {
     return (
-      <Map
-        google = {this.props.google}
-        zoom = {8}
-        styles = {mapstyle}
-        mapTypeControl = {false}
-        disableDefaultUI = {true}
-        zoomControl = {false}
-        scaleControl = {false}
-        streetViewControl = {false}
-        rotateControl = {false}
-        fullscreenControl = {true}
-        initialCenter = {{ lat: 47.444, lng: -122.176 }}
-      />
+
+      <CurrentLocation
+        centerAroundCurrentLocation
+        google={this.props.google}
+      >
+        <Marker onClick={this.onMarkerClick} name={'current location'} />
+        <InfoWindow
+          marker={this.state.activeMarker}
+          visible={this.state.showingInfoWindow}
+          onClose={this.onClose}
+        >
+          <div>
+            <h4>{this.state.selectedPlace.name}</h4>
+          </div>
+        </InfoWindow>
+      </CurrentLocation>
+      // <Map
+      //   google = {this.props.google}
+      //   zoom = {12}
+      //   styles = {mapstyle}
+      //   mapTypeControl = {false}
+      //   disableDefaultUI = {true}
+      //   zoomControl = {false}
+      //   scaleControl = {false}
+      //   streetViewControl = {false}
+      //   rotateControl = {false}
+      //   fullscreenControl = {true}
+      //   initialCenter = {this.state.center}
+      // />
     )
   }
+
 }
 
 export default GoogleApiWrapper({
   apiKey: 'AIzaSyCQ1sVSKZozy7U7kxsWE2D1B6HgT9QsjH8'
-})(MapContainer)
+})(MapContainer);
