@@ -1,12 +1,17 @@
-import React from 'react'
-import { Route, Switch, Link } from 'react-router-dom'
+import React from 'react';
+import { Route, Switch, Link } from 'react-router-dom';
+import Splash from './splash';
+import { AuthRoute, ProtectedRoute } from '../util/route_util';
+
 
 const App = () => {
     return (
         <>
-            <h1>Mockingbird</h1>
+            <Switch>
+                <AuthRoute exact path='/' component={Splash} />
+            </Switch>
         </>
     )
 }
 
-export default App
+export default App;
