@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Form from './form';
 import {fetchAllUsers} from '../../actions/user_actions'
-
+import {createSecret} from '../../actions/secret_actions'
 const mapStateToProps = (state) => {
     return {
         users: Object.values(state.entities.users)
@@ -12,7 +12,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        fetchUsers: ()=> dispatch(fetchAllUsers())
+        fetchUsers: ()=> dispatch(fetchAllUsers()),
+        createSecret: (secret) => dispatch(createSecret(secret))
     };
 };
 

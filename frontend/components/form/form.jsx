@@ -25,21 +25,32 @@ class Form extends React.Component {
         e.preventDefault();
         let expire_time = this.state.expire_time.split('/');
         let expire_date = this.state.expire_date.split('/');
-        debugger
+        
         if (expire_date.length !== 3 || expire_time.length !== 2) {
-            return false
+            return false;
         } 
         for (let i = 0; i < expire_date.length; i++) {
-            debugger
+            
             if (i < 2 && expire_time[i].length > 2) {
                 return false;
             }
             if (expire_date[i].length > 2) {
-                return false
+                return false;
             }
         }
-        const message = this.state;
-        // this.props.createMessage()
+        let time_start = this.state.date_create + this.state.time_created;
+        let time_end = this.state.expire_date + this.state.expire_time;
+
+        let secret={};
+        
+        secret["time_start"] = time_start;
+        
+        secret["time_end"] = time_start;
+        secret["lat"] = this.state.lat;
+        secret["long"] = this.state.long;
+        secret["message"] = this.state.message
+        
+        this.props.createSecret(secret)
     }
 
     update(field){

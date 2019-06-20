@@ -86,6 +86,38 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./frontend/actions/secret_actions.js":
+/*!********************************************!*\
+  !*** ./frontend/actions/secret_actions.js ***!
+  \********************************************/
+/*! exports provided: RECEIVE_CURRENT_SECRET, receiveCurrentSecret, createSecret */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_CURRENT_SECRET", function() { return RECEIVE_CURRENT_SECRET; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveCurrentSecret", function() { return receiveCurrentSecret; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createSecret", function() { return createSecret; });
+/* harmony import */ var _util_secrets_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/secrets_api_util */ "./frontend/util/secrets_api_util.js");
+ // import receiveErrors from '../actions/session_actions';
+
+var RECEIVE_CURRENT_SECRET = 'RECEIVE_CURRENT_SECRET';
+var receiveCurrentSecret = function receiveCurrentSecret(currentSecret) {
+  return {
+    type: RECEIVE_CURRENT_SECRET,
+    currentSecret: currentSecret
+  };
+};
+var createSecret = function createSecret(secret) {
+  return function (dispatch) {
+    return _util_secrets_api_util__WEBPACK_IMPORTED_MODULE_0__["createSecret"](secret).then(function (secret) {
+      return dispatch(receiveCurrentSecret(secret));
+    });
+  };
+};
+
+/***/ }),
+
 /***/ "./frontend/actions/session_actions.js":
 /*!*********************************************!*\
   !*** ./frontend/actions/session_actions.js ***!
@@ -158,7 +190,7 @@ var logout = function logout() {
 /*!******************************************!*\
   !*** ./frontend/actions/user_actions.js ***!
   \******************************************/
-/*! exports provided: RECEIVE_USER, RECEIVE_ALL_USERS, receiveAllUsers, receiveUser, fetchAllUsers, updateUser */
+/*! exports provided: RECEIVE_USER, RECEIVE_ALL_USERS, receiveAllUsers, receiveUser, fetchAllUsers */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -168,7 +200,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveAllUsers", function() { return receiveAllUsers; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveUser", function() { return receiveUser; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchAllUsers", function() { return fetchAllUsers; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateUser", function() { return updateUser; });
 /* harmony import */ var _util_user_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/user_api_util */ "./frontend/util/user_api_util.js");
 
 var RECEIVE_USER = "RECEIVE_USER";
@@ -189,13 +220,6 @@ var fetchAllUsers = function fetchAllUsers() {
   return function (dispatch) {
     return _util_user_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchAllUsers"]().then(function (users) {
       return dispatch(receiveAllUsers(users));
-    });
-  };
-};
-var updateUser = function updateUser(user) {
-  return function (dispatch) {
-    return _util_user_api_util__WEBPACK_IMPORTED_MODULE_0__["updateUser"](user).then(function (user) {
-      return dispatch(receiveUser(user));
     });
   };
 };
@@ -304,15 +328,12 @@ function (_React$Component) {
       e.preventDefault();
       var expire_time = this.state.expire_time.split('/');
       var expire_date = this.state.expire_date.split('/');
-      debugger;
 
       if (expire_date.length !== 3 || expire_time.length !== 2) {
         return false;
       }
 
       for (var i = 0; i < expire_date.length; i++) {
-        debugger;
-
         if (i < 2 && expire_time[i].length > 2) {
           return false;
         }
@@ -322,7 +343,15 @@ function (_React$Component) {
         }
       }
 
-      var message = this.state; // this.props.createMessage()
+      var time_start = this.state.date_create + this.state.time_created;
+      var time_end = this.state.expire_date + this.state.expire_time;
+      var secret = {};
+      secret["time_start"] = time_start;
+      secret["time_end"] = time_start;
+      secret["lat"] = this.state.lat;
+      secret["long"] = this.state["long"];
+      secret["message"] = this.state.message;
+      this.props.createSecret(secret);
     }
   }, {
     key: "update",
@@ -393,6 +422,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _form__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./form */ "./frontend/components/form/form.jsx");
 /* harmony import */ var _actions_user_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../actions/user_actions */ "./frontend/actions/user_actions.js");
+/* harmony import */ var _actions_secret_actions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../actions/secret_actions */ "./frontend/actions/secret_actions.js");
+
 
 
 
@@ -409,6 +440,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     fetchUsers: function fetchUsers() {
       return dispatch(Object(_actions_user_actions__WEBPACK_IMPORTED_MODULE_4__["fetchAllUsers"])());
+    },
+    createSecret: function createSecret(secret) {
+      return dispatch(Object(_actions_secret_actions__WEBPACK_IMPORTED_MODULE_5__["createSecret"])(secret));
     }
   };
 };
@@ -849,6 +883,28 @@ var ProtectedRoute = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["withR
 
 /***/ }),
 
+/***/ "./frontend/util/secrets_api_util.js":
+/*!*******************************************!*\
+  !*** ./frontend/util/secrets_api_util.js ***!
+  \*******************************************/
+/*! exports provided: createSecret */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createSecret", function() { return createSecret; });
+var createSecret = function createSecret(secret) {
+  return $.ajax({
+    method: 'post',
+    url: "api/secrets/",
+    data: {
+      secret: secret
+    }
+  });
+};
+
+/***/ }),
+
 /***/ "./frontend/util/session_api_util.js":
 /*!*******************************************!*\
   !*** ./frontend/util/session_api_util.js ***!
@@ -899,7 +955,6 @@ var logout = function logout() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchAllUsers", function() { return fetchAllUsers; });
 var fetchAllUsers = function fetchAllUsers() {
-  debugger;
   return $.ajax({
     method: 'get',
     api: 'api/user'
@@ -30266,7 +30321,7 @@ function warning(message) {
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
   \***************************************************************/
-/*! exports provided: BrowserRouter, HashRouter, Link, NavLink, MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext */
+/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext, BrowserRouter, HashRouter, Link, NavLink */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
