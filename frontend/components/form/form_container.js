@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Form from './form';
+import {fetchAllUsers} from '../../actions/user_actions'
 
 const mapStateToProps = (state) => {
     return {
@@ -11,6 +12,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => {
     return {
+        fetchUsers: ()=> dispatch(fetchAllUsers())
     };
 };
 
