@@ -1,10 +1,12 @@
 import React from 'react';
+import Map from '../Map/map';
 
 const MainMenu = (
   currentUser, 
   logout
   ) => {
 
+ 
   return (
     <>
 
@@ -24,9 +26,10 @@ const MainMenu = (
         </div>
 
         <div className="map-container">
-
+          <Map />
+          
         </div>
-
+        
       </main>
 
     </>
