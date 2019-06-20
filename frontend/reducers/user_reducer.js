@@ -1,5 +1,5 @@
 import {
-    RECEIVE_CURRENT_USER, LOGOUT_CURRENT_USER
+    RECEIVE_CURRENT_USER, LOGOUT_CURRENT_USER, RECEIVE_ALL_USERS
 } from '../actions/session_actions'
 import merge from 'lodash/merge'
 
