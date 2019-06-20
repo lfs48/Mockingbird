@@ -1,4 +1,5 @@
 import React from 'react';
+import Map from './Map/map';
 import { Route, Switch, Link } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import MainMenuContainer from './main_menu/main_menu_container';
@@ -9,6 +10,8 @@ import Splash from './splash';
 const App = () => {
     return (
         <>
+            <h1>Mockingbird</h1>
+            <Map /> 
                 <h1>Mockingbird</h1>
                 <FormContainer />
             <Switch>
