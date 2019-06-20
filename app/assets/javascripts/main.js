@@ -327,6 +327,11 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+ // var marker = new google.maps.Marker({
+//   position: myLatLng,
+//   map: map,
+//   title: 'Hello World!'
+// });
 
 var mapStyles = {
   map: {

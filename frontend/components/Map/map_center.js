@@ -2,6 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { mapstyle } from "../../../lib/assets/map-styling";
 
+// var marker = new google.maps.Marker({
+//   position: myLatLng,
+//   map: map,
+//   title: 'Hello World!'
+// });
+
 const mapStyles = {
   map: {
     position: 'absolute',
