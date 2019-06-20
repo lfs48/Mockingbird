@@ -11,11 +11,9 @@ const App = () => {
     return (
         <>
             <h1>Mockingbird</h1>
-            <Map /> 
-                <h1>Mockingbird</h1>
                 <FormContainer />
             <Switch>
-                <AuthRoute exact path='/home' component={MainMenuContainer} />
+                <ProtectedRoute exact path='/home' component={MainMenuContainer} />
                 <AuthRoute exact path='/' component={Splash} />
             </Switch>
         </>

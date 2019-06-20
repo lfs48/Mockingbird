@@ -28,11 +28,3 @@ export const fetchAllUsers = ()=> (dispatch)=> {
     )
 }
 
-export const updateUser = (user) => (dispatch) => {
-
-    return (
-        APIUtil.updateUser(user).then((user) => {
-            return dispatch(receiveUser(user))
-        })
-    )
-}
