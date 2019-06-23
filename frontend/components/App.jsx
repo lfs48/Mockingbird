@@ -10,11 +10,11 @@ import Splash from './splash';
 const App = () => {
     return (
         <>
-            <h1>Mockingbird</h1>
-                <FormContainer />
+
             <Switch>
                 <ProtectedRoute exact path='/home' component={MainMenuContainer} />
                 <AuthRoute exact path='/' component={Splash} />
+                <AuthRoute exact path='/form' component={FormContainer} />
             </Switch>
         </>
     )
