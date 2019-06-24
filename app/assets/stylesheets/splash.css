@@ -19,3 +19,10 @@
     flex-direction: column;
     padding: 20px;
  }
+
+ #splash-container input {
+     border-radius: 3px;
+     border: none;
+     padding: 5px;
+     margin-bottom: 10px
+ }
