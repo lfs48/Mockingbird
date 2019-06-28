@@ -15,7 +15,7 @@ const MainMenu = (
           <div className="navbar-user-container">
             <div className="navbar-username-container">
               <span className="navbar-username">
-                {currentUser.username}Bladdy
+                {currentUser.username}
               </span>
             </div>
             <div className="navbar-logout-button-container">
