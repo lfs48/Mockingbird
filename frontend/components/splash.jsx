@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import {login} from '../actions/session_actions';
+import { CSSTransition } from 'react-transition-group';
+
 
 export default function Splash() {
     const [username, setUsername] = useState("");
@@ -8,7 +10,13 @@ export default function Splash() {
     const dispatch = useDispatch();
 
     return (
-        <>
+        <CSSTransition
+            in={true}
+            appear
+            classNames="splash-transition"
+            timeout={2000}
+            unmountOnExit
+        >
             <div id="splash-container">
                 <h1>Mockingbird</h1>
                 <form>
@@ -30,8 +38,7 @@ export default function Splash() {
                     >Log In</button>
                 </form>
             </div>
-           
-        </>
+        </CSSTransition>
     );
 }
 
