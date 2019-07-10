@@ -7,7 +7,16 @@ import { CSSTransition } from 'react-transition-group';
 export default function Splash() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [errors, setErrors] = useState(false);
     const dispatch = useDispatch();
+
+    const handleSubmit = async () => {
+        try {
+            const result = await dispatch(login({username: username, password: password}));
+        } catch {
+            setErrors(true);
+        }
+    }
 
     return (
         <CSSTransition
@@ -22,7 +31,7 @@ export default function Splash() {
                 <form>
                     <div className="splash-input-wrapper">
                         <label
-                            for="splash-username-input"
+                            htmlFor="splash-username-input"
                         >
                         username:
                         </label>
@@ -35,7 +44,7 @@ export default function Splash() {
                     </div>
                     <div className="splash-input-wrapper">
                         <label
-                            for="splash-password-input"
+                            htmlFor="splash-password-input"
                         >
                         password:
                         </label>
@@ -48,9 +57,12 @@ export default function Splash() {
                     </div>
                     <button 
                         type="submit"
-                        onClick={() => dispatch(login({username: username, password: password}))}
+                        onClick={() => handleSubmit()}
                     >Log In</button>
                 </form>
+                {errors ? 
+                    <span id="splash-errors">ACESS DENIED</span>
+                :<></>}
             </div>
         </CSSTransition>
     );
