@@ -18,20 +18,34 @@ export default function Splash() {
             unmountOnExit
         >
             <div id="splash-container">
-                <h1>Mockingbird</h1>
+                <h1>AWAITING AUTHORIZATION</h1>
                 <form>
-                    <input 
-                        type="text"
-                        value={username}
-                        onChange={e => setUsername(e.target.value)}
-                        placeholder="username"
-                    />
-                    <input 
-                        type="password"
-                        value={password}
-                        onChange={e => setPassword(e.target.value)}
-                        placeholder="password"
-                    />
+                    <div className="splash-input-wrapper">
+                        <label
+                            for="splash-username-input"
+                        >
+                        username:
+                        </label>
+                        <input 
+                            id="splash-username-input"
+                            type="text"
+                            value={username}
+                            onChange={e => setUsername(e.target.value)}
+                        />
+                    </div>
+                    <div className="splash-input-wrapper">
+                        <label
+                            for="splash-password-input"
+                        >
+                        password:
+                        </label>
+                        <input 
+                            id="splash-password-input"
+                            type="password"
+                            value={password}
+                            onChange={e => setPassword(e.target.value)}
+                        />
+                    </div>
                     <button 
                         type="submit"
                         onClick={() => dispatch(login({username: username, password: password}))}
