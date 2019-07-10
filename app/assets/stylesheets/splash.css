@@ -31,3 +31,12 @@
      border-radius: 3px;
      border: none;
  }
+
+ .splash-transition-appear {
+     opacity: 0;
+ }
+
+ .splash-transition-appear-active {
+     opacity: 1;
+     transition: opacity 2000ms;
+ }
