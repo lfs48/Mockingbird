@@ -1,10 +1,17 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
+import {logout} from '../../actions/session_actions';
 import Map from '../Map/map';
 
-const MainMenu = (
-  currentUser, 
-  logout
-  ) => {
+const MainMenu = () => {
+
+  const dispatch = useDispatch();
+
+  const currentUser = useSelector(state => state.entities.users[state.session.id])
+
+  const handleLogout = () => {
+    dispatch(logout());
+  }
 
   return (
     <>
@@ -19,7 +26,7 @@ const MainMenu = (
               </span>
             </div>
             <div className="navbar-logout-button-container">
-              <button className="navbar-logout-button" onClick={() =>logout}>Log Out</button>
+              <button className="navbar-logout-button" onClick={() => handleLogout()}>Log Out</button>
             </div>
           </div>
         </div>
