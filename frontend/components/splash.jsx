@@ -59,7 +59,7 @@ export default function Splash() {
                     <button 
                         type="submit"
                         onClick={() => handleSubmit()}
-                    >Request Access</button>
+                    >REQUEST ACCESS</button>
                 </form>
                 {errors ? 
                     <span id="splash-errors">ACESS DENIED</span>
