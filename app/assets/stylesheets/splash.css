@@ -34,6 +34,7 @@
      background: none;
      margin-bottom: 2em;
      font-size: 2em;
+     color: rgb(71, 116, 4);
  }
 
  #splash-container button {
@@ -51,6 +52,11 @@
      font-size: 4em;
      font-weight: 700;
      margin-top: 1em;
+     white-space: nowrap;
+     overflow: hidden;
+     animation: type 10s steps(60, end); 
+     width: 38em;
+     text-align: center;
  }
 
  .splash-transition-appear {
@@ -60,4 +66,8 @@
  .splash-transition-appear-active {
      opacity: 1;
      transition: opacity 2000ms;
+ }
+
+ @keyframes type{
+     from {width: 0;}
  }
