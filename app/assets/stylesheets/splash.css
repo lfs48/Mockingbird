@@ -12,7 +12,11 @@
     font-weight: bolder;
     font-size: 3em;
     margin-bottom: 1em;
-    animation: blink 1.5s infinite;
+    white-space: nowrap;
+     overflow: hidden;
+     animation: scrolltext 10s steps(60, end); 
+     width: 45em;
+     text-align: center;
  }
 
  @keyframes blink {
