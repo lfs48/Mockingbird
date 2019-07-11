@@ -10,10 +10,6 @@ export default (state = {}, action) => {
         case RECEIVE_CURRENT_USER:
             newState[action.currentUser.id] = action.currentUser;
             return newState;
-        case LOGOUT_CURRENT_USER:
-                delete newState.session.id;
-                return newState;
-            return {}
         default:
             return state;
     }
