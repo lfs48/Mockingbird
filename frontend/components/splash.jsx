@@ -41,6 +41,7 @@ export default function Splash() {
                             type="text"
                             value={username}
                             onChange={e => setUsername(e.target.value)}
+                            autoComplete="off"
                         />
                     </div>
                     <div className="splash-input-wrapper">
