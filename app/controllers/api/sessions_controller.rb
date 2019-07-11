@@ -23,7 +23,7 @@ class Api::SessionsController < ApplicationController
       
       render "api/user/show"
     else
-      render json: ["Nobody signed in"], status: 404
+      render json: ["Nobody signed in"], status: 422
     end
   end
 end
