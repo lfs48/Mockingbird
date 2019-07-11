@@ -4,12 +4,15 @@ import {
 import merge from 'lodash/merge'
 
 export default (state = {}, action) => {
-    Object.freeze(state)
+    Object.freeze(state);
+    const newState = merge({}, state);
     switch (action.type) {
         case RECEIVE_CURRENT_USER:
-            return merge({}, state, action.currentUser)
+            newState[action.currentUser.id] = action.currentUser;
+            return newState;
         case LOGOUT_CURRENT_USER:
-            // i added this so that you don't accumulate users throughout login/logouts
+                delete newState.session.id;
+                return newState;
             return {}
         default:
             return state;
