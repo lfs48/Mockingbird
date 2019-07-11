@@ -11,6 +11,7 @@ export default function Splash() {
     const dispatch = useDispatch();
 
     const handleSubmit = async () => {
+        setErrors(false);
         try {
             const result = await dispatch(login({username: username, password: password}));
         } catch {
