@@ -63,7 +63,7 @@ export default function Splash() {
                     >REQUEST ACCESS</button>
                 </form>
                 {errors ? 
-                    <span id="splash-errors">ACESS DENIED</span>
+                    <span id="splash-errors">ACCESS DENIED</span>
                 :<></>}
             </div>
         </CSSTransition>
