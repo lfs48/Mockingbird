@@ -55,12 +55,12 @@
 
  #splash-errors {
      color: rgb(199, 25, 25);
-     font-size: 4em;
-     font-weight: 700;
+     font-size: 3em;
+     font-weight: bolder;
      margin-top: 1em;
      white-space: nowrap;
      overflow: hidden;
-     animation: type 10s steps(60, end); 
+     animation: scrolltext 10s steps(60, end); 
      width: 38em;
      text-align: center;
  }
@@ -74,6 +74,6 @@
      transition: opacity 2000ms;
  }
 
- @keyframes type{
+ @keyframes scrolltext {
      from {width: 0;}
  }
