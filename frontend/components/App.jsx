@@ -13,8 +13,8 @@ const App = () => {
 
             <Switch>
                 <ProtectedRoute exact path='/home' component={MainMenuContainer} />
-                <AuthRoute exact path='/' component={Splash} />
                 <AuthRoute exact path='/form' component={FormContainer} />
+                <AuthRoute exact path='/' component={Splash} />
             </Switch>
         </>
     )
