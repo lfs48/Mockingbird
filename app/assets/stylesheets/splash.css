@@ -53,16 +53,16 @@
      border: 1px solid rgb(117, 192, 5);;
      font-size: 1.5em;
      padding: 0.5em;
-     width: 12em;
+     width: 20em;
      color: rgb(117, 192, 5);
      background: none;
+     margin-bottom: 1em;
  }
 
  #splash-errors {
      color: rgb(199, 25, 25);
      font-size: 3em;
      font-weight: bolder;
-     margin-top: 1em;
      white-space: nowrap;
      overflow: hidden;
      animation: scrolltext 10s steps(60, end); 
