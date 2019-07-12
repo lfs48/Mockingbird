@@ -1,6 +1,14 @@
 export const fetchAllUsers = ()=>{
     return $.ajax({
         method: 'get',
-        api: 'api/user'
+        url: 'api/users'
     })
-}
+};
+
+export const createUser = (user) => {
+    return $.ajax({
+        method: 'post',
+        url: 'api/users',
+        data: {user: user}
+    })
+};

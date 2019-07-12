@@ -1,0 +1,84 @@
+#splash-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 12%;
+    color: rgb(117, 192, 5);
+    font-family: sans-serif;
+ }
+ 
+ #splash-container h1 {
+    font-weight: bolder;
+    font-size: 3em;
+    margin-bottom: 1em;
+    white-space: nowrap;
+     overflow: hidden;
+     animation: scrolltext 10s steps(60, end); 
+     width: 45em;
+     text-align: center;
+ }
+
+ @keyframes blink {
+    0% {opacity: 0}
+	49%{opacity: 0}
+	50% {opacity: 1}
+ }
+ 
+ #splash-container form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+ }
+
+ #splash-container label {
+     font-size: 2em;
+     margin-right: 0.5em;
+ }
+
+ #splash-container input {
+     border-radius: 1px;
+     border: none;
+     border-bottom: 1px solid rgb(117, 192, 5);
+     background: none;
+     margin-bottom: 2em;
+     font-size: 2em;
+     color: rgb(71, 116, 4);
+     padding: 0.2em 0.1em;
+ }
+
+ #splash-container button {
+     border-radius: 5px;
+     border: 1px solid rgb(117, 192, 5);;
+     font-size: 1.5em;
+     padding: 0.5em;
+     width: 20em;
+     color: rgb(117, 192, 5);
+     background: none;
+     margin-bottom: 1em;
+ }
+
+ #splash-errors {
+     color: rgb(199, 25, 25);
+     font-size: 3em;
+     font-weight: bolder;
+     white-space: nowrap;
+     overflow: hidden;
+     animation: scrolltext 10s steps(60, end); 
+     width: 38em;
+     text-align: center;
+ }
+
+ .splash-transition-appear {
+     opacity: 0;
+ }
+
+ .splash-transition-appear-active {
+     opacity: 1;
+     transition: opacity 2000ms;
+ }
+
+ @keyframes scrolltext {
+     from {width: 0;}
+ }
