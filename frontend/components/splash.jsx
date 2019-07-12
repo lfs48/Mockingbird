@@ -22,11 +22,15 @@ export default function Splash() {
     }
 
     const handleRegister = async (event) => {
+        let result;
         event.preventDefault();
         setErrors(false);
         try {
-            await dispatch(createUser({username: username, password: password}));
+            result = await dispatch(createUser({username: username, password: password}));
         } catch {
+            setErrors(true);
+        }
+        if (!result) {
             setErrors(true);
         }
     }
