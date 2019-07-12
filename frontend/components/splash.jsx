@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import {login} from '../actions/session_actions';
+import {createUser} from '../actions/user_actions';
 import { CSSTransition } from 'react-transition-group';
 
 
@@ -15,6 +16,16 @@ export default function Splash() {
         setErrors(false);
         try {
             const result = await dispatch(login({username: username, password: password}));
+        } catch {
+            setErrors(true);
+        }
+    }
+
+    const handleRegister = async (event) => {
+        event.preventDefault();
+        setErrors(false);
+        try {
+            await dispatch(createUser({username: username, password: password}));
         } catch {
             setErrors(true);
         }
@@ -61,7 +72,10 @@ export default function Splash() {
                     <button 
                         type="submit"
                         onClick={(event) => handleSubmit(event)}
-                    >REQUEST ACCESS</button>
+                    >AUTHENTICATE CREDENTIALS</button>
+                    <button 
+                        onClick={(event) => handleRegister(event)}
+                    >REGISTER NEW USER</button>
                 </form>
                 {errors ? 
                     <span id="splash-errors">ACCESS DENIED</span>
