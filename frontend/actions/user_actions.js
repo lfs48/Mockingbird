@@ -1,4 +1,5 @@
 import * as APIUtil from '../util/user_api_util'
+import {login} from './session_actions';
 
 export const RECEIVE_USER = "RECEIVE_USER"
 export const RECEIVE_ALL_USERS = "RECEIVE_ALL_USERS"
@@ -16,6 +17,17 @@ export const receiveUser = (user) => {
         type: RECEIVE_USER,
         user: user
     })
+}
+
+export const createUser = (formUser) => (dispatch) => {
+    APIUtil.createUser(formUser)
+    .then(
+        (user) => {
+        return dispatch( receiveUser(user) )
+    })
+    .then(
+        () => dispatch(login(formUser)) 
+    );
 }
 
 export const fetchAllUsers = ()=> (dispatch)=> {
