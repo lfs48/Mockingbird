@@ -10,7 +10,8 @@ export default function Splash() {
     const [errors, setErrors] = useState(false);
     const dispatch = useDispatch();
 
-    const handleSubmit = async () => {
+    const handleSubmit = async (event) => {
+        event.preventDefault();
         setErrors(false);
         try {
             const result = await dispatch(login({username: username, password: password}));
@@ -59,7 +60,7 @@ export default function Splash() {
                     </div>
                     <button 
                         type="submit"
-                        onClick={() => handleSubmit()}
+                        onClick={(event) => handleSubmit(event)}
                     >REQUEST ACCESS</button>
                 </form>
                 {errors ? 
