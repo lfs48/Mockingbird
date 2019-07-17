@@ -8,30 +8,30 @@ import { CSSTransition } from 'react-transition-group';
 export default function Splash() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const [errors, setErrors] = useState(false);
+    const [errors, setErrors] = useState("");
     const dispatch = useDispatch();
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        setErrors(false);
+        setErrors("");
         try {
             const result = await dispatch(login({username: username, password: password}));
         } catch {
-            setErrors(true);
+            setErrors("ACCESS DENIED");
         }
     }
 
     const handleRegister = async (event) => {
         let result;
         event.preventDefault();
-        setErrors(false);
+        setErrors("");
         try {
             result = await dispatch(createUser({username: username, password: password}));
         } catch {
-            setErrors(true);
+            setErrors("REGISTRATION DENIED");
         }
         if (!result) {
-            setErrors(true);
+            setErrors("REGISTRATION DENIED");
         }
     }
 
@@ -81,8 +81,8 @@ export default function Splash() {
                         onClick={(event) => handleRegister(event)}
                     >REGISTER NEW USER</button>
                 </form>
-                {errors ? 
-                    <span id="splash-errors">ACCESS DENIED</span>
+                {errors.length > 0 ? 
+                    <span id="splash-errors">{errors}</span>
                 :<></>}
             </div>
         </CSSTransition>
