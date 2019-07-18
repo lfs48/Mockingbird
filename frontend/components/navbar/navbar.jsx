@@ -14,17 +14,19 @@ export default function Navbar() {
 
     return(
         <div className="navbar-container">
-          <div className="navbar-title">Mockingbird</div>
-          <div className="navbar-user-container">
-            <div className="navbar-username-container">
-              <span className="navbar-username">
-                {currentUser.username}
-              </span>
+            <span className="navbar-title">
+              Mockingbird
+            </span>
+            <div className="navbar-user-container">
+                <span className="navbar-username">
+                    {currentUser.username}
+                </span>
+                <button 
+                className="navbar-logout-button" 
+                onClick={() => handleLogout()}>
+                    Log Out
+                </button>
             </div>
-            <div className="navbar-logout-button-container">
-              <button className="navbar-logout-button" onClick={() => handleLogout()}>Log Out</button>
-            </div>
-          </div>
         </div>
     );
 }
