@@ -26,3 +26,11 @@
     margin-left: 1em;
     align-items: center;
   }
+
+  .navbar-logout-button{
+    border: 1px solid rgb(117, 192, 5);
+    border-radius: 3px;
+    background: none;
+    color: rgb(117, 192, 5);
+    font-size: 0.75em;
+  }
