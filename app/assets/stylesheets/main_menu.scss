@@ -4,33 +4,6 @@
   justify-content: center;
 }
 
-.navbar-container{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 20px;
-  width: 100vw;
-  color: whitesmoke;
-}
-
-.navbar-user-container{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  margin-right: 20px;
-}
-
-.navbar-username{
-  margin-right: 20px;
-}
-
-.navbar-title{
-  margin-left: 20px;
-  align-items: center;
-}
-
 .map-container {
   margin-left: 40em;
   margin-top: 10em;
