@@ -19,7 +19,7 @@ export default function Navbar() {
             </span>
             <div className="navbar-user-container">
                 <span className="navbar-username">
-                    {currentUser.username}
+                    Welcome, agent {currentUser.username}
                 </span>
                 <button 
                 className="navbar-logout-button" 
