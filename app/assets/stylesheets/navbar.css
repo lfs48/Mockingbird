@@ -3,9 +3,11 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    font-size: 20px;
-    width: 100vw;
-    color: whitesmoke;
+    font-size: 2em;
+    width: 100%;
+    padding: 0.5em 0;
+    color: rgb(117, 192, 5);
+    border-bottom: 1px solid rgb(117, 192, 5);
   }
   
   .navbar-user-container{
@@ -13,14 +15,14 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    margin-right: 20px;
+    margin-right: 1em;
   }
   
   .navbar-username{
-    margin-right: 20px;
+    margin-right: 1em;
   }
   
   .navbar-title{
-    margin-left: 20px;
+    margin-left: 1em;
     align-items: center;
   }
