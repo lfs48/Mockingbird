@@ -5,11 +5,29 @@
 }
 
 .map-container {
-  margin-left: 40em;
+  margin-left: 20em;
   margin-top: 10em;
   width: 40em;
   height: 40em;
   position: relative;
   border: 3px solid rgb(117, 192, 5);
   border-radius: 3px;
+}
+
+#main-menu-content {
+  display: flex;
+}
+
+#main-menu-content ul {
+  margin-left: 10em;
+  margin-top: 5em;
+  border: 3px solid rgb(117, 192, 5);
+  border-radius: 3px;
+}
+
+#main-menu-content li {
+  color: rgb(117, 192, 5);
+  border-bottom: 3px solid rgb(117, 192, 5);
+  padding: 0.5em;
+  font-size: 2em;
 }
