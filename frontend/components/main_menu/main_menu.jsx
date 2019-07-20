@@ -9,10 +9,15 @@ const MainMenu = () => {
 
       <main className="main-menu-content-container">
         <Navbar/>
-        <div className="map-container">
-          <Map/>
-        </div>
-
+        <section id="main-menu-content">
+          <ul>
+            <li>Create Secret</li>
+            <li>Recent Secrets</li>
+          </ul>
+          <div className="map-container">
+            <Map/>
+          </div>
+        </section>
       </main>
 
     </>
