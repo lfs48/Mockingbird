@@ -4,6 +4,10 @@ import Map from '../Map/map';
 
 const MainMenu = () => {
 
+  const handleOpenForm = () => {
+    
+  }
+
   return (
     <>
 
@@ -11,7 +15,7 @@ const MainMenu = () => {
         <Navbar/>
         <section id="main-menu-content">
           <ul>
-            <li>Create Secret</li>
+            <li onClick={() => handleOpenForm()}>Create Secret</li>
             <li>Recent Secrets</li>
           </ul>
           <div className="map-container">
